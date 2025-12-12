@@ -1,0 +1,6 @@
+lichen-os/
+├── LICENSE          # MIT pour le code
+├── paper/
+│   └── LICENSE      # CC BY 4.0 pour le paper
+└── benchmarks/
+    └── LICENSE      # CC0 1.0 pour les données
