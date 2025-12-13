@@ -187,3 +187,142 @@ Experimental
 Actively evolving
 
 Open to critique, replication, and falsification
+
+
+🚧 Limitations & Open Questions
+
+FC-496 implements a non-neutral bit architecture in which all bits contribute to global structural coherence.
+Any unauthorized modification introduces inconsistencies that prevent the cell from satisfying its error-correction and indexing constraints, resulting in either automatic correction or structural invalidation.
+
+Lichen OS et FC-496 sont des travaux de recherche exploratoires. Plusieurs limites et questions ouvertes restent volontairement explicites.
+
+1. Détection ≠ prévention
+
+FC-496 est conçu pour rendre les modifications non légitimes détectables, mais :
+
+il ne garantit pas l’impossibilité de la fraude,
+
+il ne remplace pas les mécanismes cryptographiques classiques (signatures, chiffrement),
+
+il ne décide pas qui a modifié les données, seulement qu’une modification structurelle a eu lieu.
+
+👉 FC-496 améliore la visibilité des anomalies, pas leur origine.
+
+2. Hypothèses théoriques encore ouvertes
+
+UICT est proposé comme modèle conceptuel, pas comme loi physique validée.
+
+Les liens entre compression de l’information, stabilité et phénomènes physiques restent à tester empiriquement.
+
+Les constantes utilisées (496, φ, π) sont structurelles et symboliques, leur optimalité universelle n’est pas démontrée.
+
+👉 Chaque composant peut être évalué indépendamment.
+
+3. Scalabilité à grande échelle
+
+Les tests actuels montrent une bonne stabilité jusqu’à :
+
+1M+ cellules
+
+fortes corruptions locales
+
+Mais des questions demeurent :
+
+comportement à l’échelle planétaire,
+
+coûts énergétiques cumulés,
+
+interaction avec des systèmes hétérogènes existants.
+
+4. CEML et H-Scale comme indicateurs, pas arbitres
+
+CEML et H-Scale sont des métriques heuristiques, pas des juges de vérité ou d’éthique.
+
+Elles peuvent signaler des zones à risque, pas décider à la place d’un humain.
+
+Leur calibration dépend fortement du contexte et des données d’entrée.
+
+5. Reproductibilité
+
+Les benchmarks dépendent du matériel et de l’implémentation.
+
+Des reproductions indépendantes sont nécessaires pour confirmer les gains annoncés.
+
+Le projet encourage explicitement la falsification expérimentale.
+
+Questions ouvertes
+
+Existe-t-il un format plus compact offrant la même non-neutralité structurelle ?
+
+La géométrie fractale apporte-t-elle un avantage mesurable à long terme ?
+
+Peut-on formaliser mathématiquement la notion de “cohérence détectable” ?
+
+Comment intégrer FC-496 avec des standards existants sans perte de ses propriétés ?
+
+🧩 FC-496 — Schéma Conceptuel Simplifié
+Idée clé (intuition)
+
+Dans FC-496, aucun bit n’est passif.
+Modifier un bit, c’est perturber une structure entière.
+
+Schéma logique
+┌──────────────────────── FC-496 CELL (496 bits) ────────────────────────┐
+│                                                                         │
+│  ┌─────────────┐ ┌────────────────────┐ ┌──────────────────────────┐  │
+│  │  Metadata   │ │   Structural Links  │ │         Payload          │  │
+│  │ (Header)    │ │ (ECC + Indexing)    │ │     (User / System Data) │  │
+│  └─────────────┘ └────────────────────┘ └──────────────────────────┘  │
+│        ↑                 ↑                         ↑                    │
+│        └────── coupled ──┴──────── coupled ────────┘                    │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+Ce que ça implique
+
+Les bits du payload ne sont pas isolés
+
+Les métadonnées ne sont pas décoratives
+
+L’ECC n’est pas un “patch”, mais une partie intégrante de la structure
+
+➡️ Toute modification non cohérente :
+
+perturbe les codes correcteurs,
+
+modifie les indices,
+
+crée une signature mesurable.
+
+Analogie simple
+
+FC-496 n’est pas un texte,
+c’est un instrument accordé.
+
+JSON = des mots sur une feuille
+
+FC-496 = un accord musical
+
+Changer une note :
+
+tu peux encore jouer,
+
+mais ça sonne faux, et ça s’entend.
+
+Pourquoi c’est important
+
+Pas besoin de connaître l’intention de l’attaquant
+
+Pas besoin d’un oracle externe
+
+La structure elle-même devient un capteur d’anomalie
+
+🧠 Résumé en une phrase (golden sentence)
+
+FC-496 ne rend pas les systèmes inviolables — il les rend structurellement sensibles aux violations.
+
+Dans FC-496, chaque bit est structurellement couplé aux autres.
+Toute modification non légitime empêche la cellule de satisfaire simultanément les contraintes de cohérence, de correction d’erreurs et d’indexation.
+En conséquence, une altération non autorisée ne peut pas se stabiliser : elle est soit automatiquement corrigée par l’ECC, soit rejetée comme cellule invalide.
+
+
