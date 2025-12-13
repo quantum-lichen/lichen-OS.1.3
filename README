@@ -194,6 +194,8 @@ Open to critique, replication, and falsification
 FC-496 implements a non-neutral bit architecture in which all bits contribute to global structural coherence.
 Any unauthorized modification introduces inconsistencies that prevent the cell from satisfying its error-correction and indexing constraints, resulting in either automatic correction or structural invalidation.
 
+Lichen OS investigates whether structural sensitivity alone can serve as a first-line defense against silent failure in cognitive systems.
+
 Lichen OS et FC-496 sont des travaux de recherche exploratoires. Plusieurs limites et questions ouvertes restent volontairement explicites.
 
 1. Détection ≠ prévention
