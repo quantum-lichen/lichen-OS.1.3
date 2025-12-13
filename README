@@ -1,1 +1,189 @@
+🌱 Lichen OS — Foundations for Self-Organizing Cognitive Systems
 
+Status: Research & Experimental
+Focus: Data formats, resilience, cognitive alignment, systems architecture
+
+🌟 Overview
+
+Lichen OS is an experimental cognitive systems architecture exploring how data structure, error correction, and coherence metrics can improve the robustness and alignment of future AI systems.
+
+Rather than optimizing for human-facing software, Lichen OS focuses on machine-native representations designed to:
+
+detect non-legitimate state changes,
+
+preserve contextual integrity,
+
+and reduce systemic drift under stress.
+
+🔑 Core Concepts
+FC-496 — Fixed-Structure Cognitive Data Cells
+
+FC-496 is a 496-bit fixed-size data cell where:
+
+All bits are structurally allocated
+
+No bit is informationally neutral
+
+Any modification propagates measurable changes across the cell
+
+This design means that unauthorized or incoherent modifications cannot be injected silently — changes are detectable, even when partially corrected.
+
+⚠️ FC-496 does not claim to make fraud impossible.
+It aims to make illegitimate changes non-transparent and observable.
+
+Key features:
+
+Fixed-size atomic cells (496 bits)
+
+Parallel BCH(31,16) error correction
+
+Structural coupling between metadata and payload
+
+Designed for stress and corruption detection, not secrecy
+
+UICT — Unified Information Compression Theory (Research)
+
+UICT explores the hypothesis that information compression and physical structure are linked.
+
+Within Lichen OS, UICT is treated as:
+
+a modeling framework, not a physical law
+
+a way to reason about coherence, redundancy, and stability
+
+UICT components are isolated and optional, allowing independent evaluation.
+
+CEML — Cognitive Entropy Minimization Law (Metric)
+
+CEML defines a ratio-based metric:
+
+CEML
+(
+Ψ
+)
+=
+𝐶
+(
+Ψ
+)
+𝐻
+(
+Ψ
+)
++
+𝜖
+CEML(Ψ)=
+H(Ψ)+ϵ
+C(Ψ)
+	​
+
+
+Used experimentally to:
+
+detect incoherent system states
+
+flag low-signal or unstable outputs
+
+act as a filter, not a guarantee
+
+CEML does not prevent errors — it helps identify conditions where errors are more likely.
+
+H-Scale — Harmonic Evaluation Metric
+
+H-Scale combines multiple dimensions:
+
+coherence
+
+efficiency
+
+resonance
+
+durability
+
+It is intended as:
+
+a decision-support signal
+
+not a moral authority
+
+not an enforcement mechanism
+
+🧠 System Architecture
+lichen-os/
+├── core/        # Fundamental primitives (Rust)
+│   ├── fc496/   # Data cell format & ECC
+│   ├── hse/     # Spatio-temporal indexing (experimental)
+│   ├── ceml/    # Coherence metrics
+│   └── uict/    # Research models
+├── apps/        # Demonstration applications
+├── docs/        # Papers, diagrams, tutorials
+└── tests/       # Unit, integration, and stress tests
+
+
+The architecture is designed to separate theory from implementation, allowing individual components to be validated or replaced independently.
+
+🧪 Testing & Validation
+Stress & Corruption Testing
+
+Lichen OS emphasizes failure behavior, not just success cases.
+
+Tested scenarios include:
+
+1M+ valid FC-496 cells
+
+Random 1–3 bit corruptions
+
+Network interruption simulations
+
+Sustained CPU and memory pressure
+
+Observed results:
+
+High detection rate of corrupted cells
+
+Graceful degradation under load
+
+No silent data acceptance during corruption
+
+These results indicate robustness, not perfection.
+
+💡 Intended Use Cases (Exploratory)
+
+Lichen OS is not production-ready, but may be useful for research in:
+
+resilient data storage
+
+distributed sensing
+
+AI system alignment metrics
+
+long-lived autonomous systems
+
+Claims are limited to controlled experimental contexts.
+
+📌 Project Philosophy
+
+Detectability over denial
+
+Structure over heuristics
+
+Metrics over intuition
+
+Resilience over optimization
+
+Lichen OS does not attempt to “solve AI ethics” or “replace existing operating systems.”
+It explores how far structure alone can go in reducing ambiguity and silent failure.
+
+📜 License
+
+Code: MIT
+
+Documentation & papers: CC BY 4.0
+
+🚧 Current Status
+
+Experimental
+
+Actively evolving
+
+Open to critique, replication, and falsification
